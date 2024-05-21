@@ -60,7 +60,7 @@ class Flattened2Dpatches:
         elif self.dataname == 'imagenet':
             pass
 
-        #클래스를 뽑을 확률을 동일하게
+        #클래스를 뽑을 확률을 동일하게 #새로운 부분 확인 필요
         weights = self.make_weights(trainset.targets, len(trainset.classes))  # 가중치 계산
         weights = torch.DoubleTensor(weights)
         sampler = torch.utils.data.sampler.WeightedRandomSampler(weights, len(weights)) 

@@ -5,7 +5,7 @@ class LinearProjection(nn.Module):
 
     def __init__(self, patch_vec_size, num_patches, latent_vec_dim, drop_rate):
         super().__init__()
-        self.linear_proj = nn.Linear(patch_vec_size, latent_vec_dim) #p^cxD
+        self.linear_proj = nn.Linear(patch_vec_size, latent_vec_dim) #(p^2xc)xD
         self.cls_token = nn.Parameter(torch.randn(1, latent_vec_dim)) #랜덤한 값으로 #학습해야해서 다음과 같이 parameter로 설정 
         self.pos_embedding = nn.Parameter(torch.randn(1, num_patches+1, latent_vec_dim)) #patch수에 하나 추가# 마찬가지로 학습해야해서 parameter로 
         self.dropout = nn.Dropout(drop_rate)
